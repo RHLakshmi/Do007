@@ -1,11 +1,5 @@
-- name: Collection Check
-  hosts: localhost
-  gather_facts: false
+name: Simple Connectivity Test
+  hosts: all
   tasks:
-    - name: Verify controller collection version
-      debug:
-        msg: "Collection is available!"
-      delegate_to: localhost
-      # This will fail if the collection is missing
-      collections:
-        - ansible.controller
+    - name: Ping the host
+      ansible.builtin.ping:
