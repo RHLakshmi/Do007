@@ -1,4 +1,5 @@
-name: Simple Connectivity Test
+---
+- name: Simple Connectivity Test
   hosts: all
   tasks:
     - name: Ping the host
