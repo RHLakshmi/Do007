@@ -1,6 +1,6 @@
 ----
 -name: Basic System Setup
- hosts: localhost
+ hosts: local host
  become: true
  tasks: 
  -name: Create a new user
