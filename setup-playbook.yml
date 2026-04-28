@@ -1,10 +1,18 @@
 ----
+- name: Add a host to AAP
+  ansible.controller.host:
+    name: "webserver-01.example.com"
+    inventory: "Production Inventory"
+    state: present
+    variables:
+      ansible_host: "10.0.0.5"
+      http_port: 80
 -name: Basic System Setup
  hosts: local host
  become: true
  tasks: 
  -name: Create a new user
-ansible.builtin.user:
- name: roger
- state: present
- create_home: true
+  ansible.builtin.user:
+  name: roger
+  state: present
+  create_home: true
