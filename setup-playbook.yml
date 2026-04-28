@@ -3,12 +3,7 @@
  hosts: web
  become: true
  tasks: 
- -name: Update all security-related packages
-  ansible.builtin.package:
-  name: '*"
-  state: latest
-  security: true
--name: Create a new user
+ -name: Create a new user
 ansible.builtin.user:
  name: roger
  state: present
