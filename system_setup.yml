@@ -1,0 +1,32 @@
+name: Basic RHEL 9 System Preparation
+  hosts: all
+  become: true  # This tells Ansible to use 'sudo'
+  
+  tasks:
+    - name: Ensure the OS is RHEL or CentOS Stream
+      ansible.builtin.assert:
+        that:
+          - ansible_os_family == "RedHat"
+        fail_msg: "This playbook is only for RHEL-based systems!"
+
+    - name: Install useful administration tools
+      ansible.builtin.dnf:
+        name: 
+          - vim
+          - curl
+          - git
+        state: present
+
+    - name: Ensure the firewalld service is started and enabled
+      ansible.builtin.systemd:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: Create a simple 'motd' file (Message of the Day)
+      ansible.builtin.copy:
+        content: "This server is managed by Ansible Automation Platform.\n"
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: '0644'
