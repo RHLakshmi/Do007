@@ -1,7 +1,7 @@
 ---
 - name: Basic System Setup
   hosts: localhost
-  become: false
+  become: true
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
