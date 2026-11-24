@@ -2,6 +2,8 @@
 - name: Basic System Setup
   hosts: localhost
   become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Update all security-related packages
       ansible.builtin.dnf:
