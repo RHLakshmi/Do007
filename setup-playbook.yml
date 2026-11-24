@@ -1,5 +1,5 @@
 ---
-- name:Basic System Setup
+- name: Basic System Setup
   hosts: web
   become: true
   tasks:
